@@ -4,5 +4,11 @@ ws.onopen = function() {
 };
 
 ws.onmessage = function (evt) {
-    alert(evt.data);
+    var msg = JSON.parse(evt.data, (key, value) => {
+            switch(key) {
+                case "message":
+                    console.log(value);
+                    break;
+            }
+        });
 };
